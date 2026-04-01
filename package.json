@@ -1,8 +1,8 @@
 {
   "name": "python-run-with-args",
   "displayName": "Python Run With Args",
-  "description": "Prompt for command-line arguments before running the current Python file (play button / command).",
-  "version": "0.0.1",
+  "description": "Run Python scripts in VS Code or Cursor with a quick prompt for CLI arguments—remembered per file. Works from the Run menu, Command Palette, and keyboard.",
+  "version": "0.0.2",
   "publisher": "kitchelsoftware",
   "repository": {
     "type": "git",
@@ -23,7 +23,12 @@
     "python",
     "arguments",
     "cli",
-    "run"
+    "run",
+    "argparse",
+    "sys.argv",
+    "command line",
+    "vscode",
+    "cursor"
   ],
   "activationEvents": [
     "onLanguage:python",
