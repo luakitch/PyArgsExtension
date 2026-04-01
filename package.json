@@ -1,0 +1,75 @@
+{
+  "name": "python-run-with-args",
+  "displayName": "Python Run With Args",
+  "description": "Prompt for command-line arguments before running the current Python file (play button / command).",
+  "version": "0.0.1",
+  "publisher": "kitchelsoftware",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "python",
+    "arguments",
+    "cli",
+    "run"
+  ],
+  "activationEvents": [
+    "onLanguage:python",
+    "onCommand:pyargs.runWithArgs",
+    "onDebugResolve:python",
+    "onDebugResolve:debugpy"
+  ],
+  "main": "./out/extension.js",
+  "extensionDependencies": [
+    "ms-python.python"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "pyargs.runWithArgs",
+        "title": "Run Python File with Arguments",
+        "category": "Python Args",
+        "icon": "$(play)"
+      }
+    ],
+    "menus": {
+      "editor/title/run": [
+        {
+          "when": "resourceLangId == python && !inDiffEditor",
+          "command": "pyargs.runWithArgs",
+          "group": "pythonArgs@20"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "pyargs.runWithArgs",
+          "when": "editorLangId == python"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "pyargs.runWithArgs",
+        "key": "ctrl+shift+f5",
+        "mac": "cmd+shift+f5",
+        "when": "editorLangId == python && editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3",
+    "@vscode/vsce": "^3.2.0"
+  }
+}

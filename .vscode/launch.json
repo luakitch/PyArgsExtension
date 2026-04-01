@@ -1,0 +1,59 @@
+{
+  "version": "0.2.0",
+  "inputs": [
+    {
+      "id": "extDevOpenFolder",
+      "type": "promptString",
+      "description": "Folder to open in the Extension Development Host (absolute path to any repo/project)",
+      "default": ""
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "pyargsPrompt": true
+    },
+    {
+      "name": "Python: Current File (no prompt)",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Run Extension (development)",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+      "outFiles": ["${workspaceFolder}/out/**/*.js"],
+      "preLaunchTask": "npm: compile",
+      "stopOnEntry": false
+    },
+    {
+      "name": "Run Extension (skip compile task)",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+      "outFiles": ["${workspaceFolder}/out/**/*.js"],
+      "stopOnEntry": false
+    },
+    {
+      "name": "Run Extension + open another folder…",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "${input:extDevOpenFolder}"
+      ],
+      "outFiles": ["${workspaceFolder}/out/**/*.js"],
+      "preLaunchTask": "npm: compile",
+      "stopOnEntry": false
+    }
+  ]
+}
