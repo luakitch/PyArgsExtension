@@ -4,6 +4,14 @@
   "description": "Prompt for command-line arguments before running the current Python file (play button / command).",
   "version": "0.0.1",
   "publisher": "kitchelsoftware",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luakitch/PyArgsExtension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luakitch/PyArgsExtension/issues"
+  },
+  "homepage": "https://github.com/luakitch/PyArgsExtension#readme",
   "license": "MIT",
   "engines": {
     "vscode": "^1.85.0"
